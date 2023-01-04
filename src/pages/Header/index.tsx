@@ -61,7 +61,7 @@ export const Header = () => {
       </header>
       <div
         className={
-          "absolute w-full bg-gray-900 sm:hidden burger " +
+          "absolute w-full bg-gray-900 sm:hidden burger mt-20 " +
           (openHamburger ? "burger_show" : "")
         }
       >
