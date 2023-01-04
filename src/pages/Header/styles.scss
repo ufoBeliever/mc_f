@@ -1,0 +1,10 @@
+.burger {
+  max-height: 0px !important;
+  transition: 0.2s ease-out !important;
+  overflow: hidden;
+
+  &_show {
+    max-height: 500px !important;
+    transition: 0.2s ease-in !important;
+  }
+}
