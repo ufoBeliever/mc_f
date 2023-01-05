@@ -1,0 +1,24 @@
+.news-preview {
+  height: 465px !important;
+
+  &_img-wrapper {
+    min-width: 384px;
+    height: 384px;
+    background-color: rgb(245, 245, 245) !important;
+    border-radius: 6px !important;
+  }
+
+  &_text-wrapper {
+    height: 350px !important;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .news-preview {
+    height: 401px !important;
+
+    &_text-wrapper {
+      height: 286px !important;
+    }
+  }
+}

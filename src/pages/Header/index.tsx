@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { HeaderLink } from "../../component";
+import { HeaderLink } from "../../components";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
 import "./styles.scss";
@@ -61,7 +61,7 @@ export const Header = () => {
       </header>
       <div
         className={
-          "absolute w-full bg-gray-900 sm:hidden burger mt-20 " +
+          "absolute w-full bg-gray-900 sm:hidden burger mt-20 z-50 " +
           (openHamburger ? "burger_show" : "")
         }
       >
