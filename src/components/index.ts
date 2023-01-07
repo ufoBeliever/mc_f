@@ -1,4 +1,5 @@
 export * from "./HeaderLink";
-export * from "./NewsPreviewList";
+export * from "./NewsPreview";
 export * from "./Heading";
 export * from "./PrimaryButton";
+export * from "./NewsCard";

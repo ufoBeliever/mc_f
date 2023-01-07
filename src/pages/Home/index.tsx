@@ -1,5 +1,5 @@
 import React from "react";
-import { NewsPreviewList } from "../../components";
+import { NewsPreview } from "../../components";
 
 export const Home = () => {
   const article = {
@@ -10,7 +10,7 @@ export const Home = () => {
   };
   return (
     <div>
-      <NewsPreviewList {...article} />
+      <NewsPreview {...article} />
     </div>
   );
 };

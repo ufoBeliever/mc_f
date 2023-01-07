@@ -1,19 +1,16 @@
 import React from "react";
-import { NewsPreviewListProps } from "./types";
+import { NewsPreviewProps } from "./types";
 import "./styles.scss";
 import { Heading } from "../Heading";
 import { PrimaryButton } from "../PrimaryButton";
 import { Link } from "react-router-dom";
+import { cutStr } from "../../utils/commonFuncs";
 
-export const NewsPreviewList: React.FC<NewsPreviewListProps> = ({
+export const NewsPreview: React.FC<NewsPreviewProps> = ({
   text,
   image,
   id,
 }) => {
-  const cutStr = (str: string, ln: number) => {
-    return str.length > ln ? str.slice(0, ln).trim() : str;
-  };
-
   return (
     <>
       <Heading label="Find out about our latest news" />
@@ -34,7 +31,7 @@ export const NewsPreviewList: React.FC<NewsPreviewListProps> = ({
           />
           <span className="ml-24 font-normal text-2xl hidden xl:inline">
             {cutStr(text, 300)}{" "}
-            <Link to={`/articles/${id}`}>
+            <Link to={`/news/${id}`}>
               <span className="text-blue-600 hover:underline">
                 Read more...
               </span>
@@ -42,7 +39,7 @@ export const NewsPreviewList: React.FC<NewsPreviewListProps> = ({
           </span>
           <span className="ml-24 font-normal text-xl inline xl:hidden xl:text-2xl">
             {cutStr(text, 180)}{" "}
-            <Link to={`/articles/${id}`}>
+            <Link to={`/news/${id}`}>
               <span className="text-blue-600 hover:underline">
                 Read more...
               </span>
@@ -50,7 +47,7 @@ export const NewsPreviewList: React.FC<NewsPreviewListProps> = ({
           </span>
         </div>
         <div className="self-end w-full flex flex-col">
-          <Link to="/articles" className="self-end">
+          <Link to="/news" className="self-end">
             <PrimaryButton label="View all latest news" />
           </Link>
         </div>
@@ -74,7 +71,7 @@ export const NewsPreviewList: React.FC<NewsPreviewListProps> = ({
         />
         <span className="font-normal mt-4 text-xl text-center md:text-left xl:text-2xl md:ml-10 md:mt-0">
           {cutStr(text, 230)}{" "}
-          <Link to={`/articles/${id}`}>
+          <Link to={`/news/${id}`}>
             <span className="text-blue-600 hover:underline">Read more...</span>
           </Link>
         </span>
