@@ -1,11 +1,15 @@
-import { Heading, NewsCard } from "../../components";
+import { useState } from "react";
+import { Heading, NewsCard, Pagination } from "../../components";
 import "./style.scss";
 
 export const News = () => {
+  const paginationLimit = 24;
+  const [paginationValue, setPaginationValue] = useState<number>(1);
+
   return (
-    <div>
+    <div className="flex flex-col items-center">
       <Heading label="Latest news of Best MC ever" />
-      <div className="flex flex-wrap justify-around gap-8 mt-8">
+      <div className="flex flex-wrap justify-around gap-8 my-8">
         <div className="hidden" />
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((e) => {
           return (
@@ -17,6 +21,11 @@ export const News = () => {
           );
         })}
       </div>
+      <Pagination
+        value={paginationValue}
+        limit={paginationLimit}
+        setValue={setPaginationValue}
+      />
     </div>
   );
 };
