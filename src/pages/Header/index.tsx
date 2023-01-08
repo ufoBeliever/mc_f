@@ -33,6 +33,7 @@ export const Header = () => {
       >
         <Link to="/">
           <img
+            onClick={() => setOpenHambuger(false)}
             src={require("../../assets/logo.png")}
             className="h-12"
             alt="logo"
@@ -73,7 +74,12 @@ export const Header = () => {
                   key={id}
                   className="space-y-6 w-full flex items-center flex-col"
                 >
-                  <HeaderLink label={el.title} link={el.link} mobile={true} />
+                  <HeaderLink
+                    label={el.title}
+                    link={el.link}
+                    mobile={true}
+                    onClick={() => setOpenHambuger(false)}
+                  />
                   {id === headerOptions.length - 1 ? null : (
                     <div className="h-px bg-white w-full" />
                   )}

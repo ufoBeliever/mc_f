@@ -13,7 +13,7 @@ export const NewsItem: React.FC = () => {
   return (
     <article>
       <Heading label={title} />
-      <div className="my-8">
+      <div className="my-8 flex flex-col items-center text-center md:block">
         <img
           src={image}
           className="w-96 h-96 float-left object-cover rounded mr-8 mb-8"
@@ -21,7 +21,7 @@ export const NewsItem: React.FC = () => {
         />
         <p className="font-normal text-lg">{text}</p>
       </div>
-      <div className="flex items-center justify-between">
+      <div className="flex items-start justify-between space-y-2 flex-col md:flex-row md:items-center md:space-y-0">
         <span className="font-medium text-xl">
           {date.toLocaleString("ru-RU")}
         </span>

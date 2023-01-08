@@ -6,6 +6,7 @@ export const HeaderLink: React.FC<HeaderLinkProps> = ({
   label,
   link,
   mobile,
+  ...rest
 }) => {
   return (
     <Link to={link}>
@@ -16,6 +17,11 @@ export const HeaderLink: React.FC<HeaderLinkProps> = ({
                 text-white
                 text-lg
                 font-medium
+                border-b-2
+                border-transparent
+                pb-px
+                transition
+                hover:border-white
                 `
             : `
                 text-white
@@ -27,6 +33,7 @@ export const HeaderLink: React.FC<HeaderLinkProps> = ({
                 transition
                 hover:border-white`
         }
+        {...rest}
       >
         {label}
       </button>
