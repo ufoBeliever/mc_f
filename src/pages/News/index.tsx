@@ -15,6 +15,7 @@ export const News = () => {
           return (
             <NewsCard
               key={e}
+              id={e.toString()}
               title="Kolaborasi di dalam tim"
               text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ipsum dolor sit amet, consectetur adipiscing elit, sed do ipsum dolor sit amet, consectetur adipiscing elit, sed do"
             />

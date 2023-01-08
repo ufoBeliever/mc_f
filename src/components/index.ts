@@ -5,3 +5,4 @@ export * from "./PrimaryButton";
 export * from "./NewsCard";
 export * from "./Pagination";
 export * from "./PaginationButton";
+export * from "./Share";
