@@ -23,7 +23,7 @@ export const Header = () => {
     <>
       <header
         className="h-20
-                bg-gray-900
+                bg-primarydark
                 flex
                 justify-between
                 items-center
@@ -62,7 +62,7 @@ export const Header = () => {
       </header>
       <div
         className={
-          "absolute w-full bg-gray-900 sm:hidden burger mt-20 z-50 " +
+          "absolute w-full bg-primarydark sm:hidden burger mt-20 z-50 " +
           (openHamburger ? "burger_show" : "")
         }
       >

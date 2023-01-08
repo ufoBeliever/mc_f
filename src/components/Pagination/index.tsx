@@ -1,7 +1,8 @@
 import { PaginationButton } from "../PaginationButton";
-import { GrFormNext, GrFormPrevious } from "react-icons/gr";
+import { GrNext, GrPrevious } from "react-icons/gr";
 import React from "react";
 import { PaginationProps } from "./types";
+import { MdOutlineNavigateNext } from "react-icons/md";
 
 export const Pagination: React.FC<PaginationProps> = ({
   value,
@@ -35,10 +36,14 @@ export const Pagination: React.FC<PaginationProps> = ({
     <div className="flex items-center">
       <button
         disabled={value === 1}
-        className="rounded-full hover:bg-blue-200 p-2 mr-2 disabled:bg-transparent"
+        className="rounded-full hover:bg-secondarygreen p-2 mr-2 disabled:bg-transparent"
         onClick={decrementValue}
       >
-        <GrFormPrevious size="20px" />
+        <MdOutlineNavigateNext
+          size="30px"
+          color="white"
+          className="rotate-180"
+        />
       </button>
       <div>
         {fill(stage * 5 + 1).map((e) => {
@@ -54,10 +59,10 @@ export const Pagination: React.FC<PaginationProps> = ({
       </div>
       <button
         disabled={value === limit}
-        className="rounded-full hover:bg-blue-200 p-2 ml-2 disabled:bg-transparent"
+        className="rounded-full hover:bg-secondarygreen p-2 ml-2 disabled:bg-transparent"
         onClick={incrementValue}
       >
-        <GrFormNext size="20px" />
+        <MdOutlineNavigateNext size="30px" color="white" />
       </button>
     </div>
   );

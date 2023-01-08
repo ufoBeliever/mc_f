@@ -17,7 +17,7 @@ export const NewsPreview: React.FC<NewsPreviewProps> = ({
       <div className="news-preview mt-12 relative hidden lg:flex">
         <div
           className="news-preview_text-wrapper
-          bg-gray-300
+          bg-primarygreen
           absolute
           flex
           pt-20
@@ -29,18 +29,18 @@ export const NewsPreview: React.FC<NewsPreviewProps> = ({
             className="h-80 w-80 object-cover rounded-md xl:h-96 xl:w-96"
             alt="Article preview"
           />
-          <span className="ml-24 font-normal text-2xl hidden xl:inline">
+          <span className="ml-24 font-normal text-2xl hidden xl:inline text-white">
             {cutStr(text, 300)}{" "}
             <Link to={`/news/${id}`}>
-              <span className="text-blue-600 hover:underline">
+              <span className="text-secondarydark hover:underline">
                 Read more...
               </span>
             </Link>
           </span>
-          <span className="ml-24 font-normal text-xl inline xl:hidden xl:text-2xl">
+          <span className="ml-24 font-normal text-xl inline xl:hidden xl:text-2xl text-white">
             {cutStr(text, 180)}{" "}
             <Link to={`/news/${id}`}>
-              <span className="text-blue-600 hover:underline">
+              <span className="text-secondarydark hover:underline">
                 Read more...
               </span>
             </Link>
@@ -69,10 +69,12 @@ export const NewsPreview: React.FC<NewsPreviewProps> = ({
           className="md:h-72 md:w-72 h-96 w-96 object-cover rounded-md xl:h-96 xl:w-96"
           alt="Article preview"
         />
-        <span className="font-normal mt-4 text-xl text-center md:text-left xl:text-2xl md:ml-10 md:mt-0">
+        <span className="font-normal mt-4 text-xl text-center md:text-left xl:text-2xl md:ml-10 md:mt-0 text-white">
           {cutStr(text, 230)}{" "}
           <Link to={`/news/${id}`}>
-            <span className="text-blue-600 hover:underline">Read more...</span>
+            <span className="text-primarygreen hover:underline">
+              Read more...
+            </span>
           </Link>
         </span>
       </div>

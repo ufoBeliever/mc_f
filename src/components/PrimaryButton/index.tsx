@@ -4,7 +4,7 @@ import { PrimaryButtonProps } from "./types";
 export const PrimaryButton: React.FC<PrimaryButtonProps> = ({ label }) => {
   return (
     <button
-      className="bg-blue-500
+      className="bg-primarygreen
     text-white
     py-3
     px-4
@@ -13,7 +13,7 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({ label }) => {
     font-semibold
     xl:text-lg
     rounded-md
-    hover:bg-blue-400
+    hover:bg-secondarygreen
     transition"
     >
       {label}

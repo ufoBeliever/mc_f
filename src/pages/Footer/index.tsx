@@ -5,7 +5,7 @@ import { FaTelegramPlane } from "react-icons/fa";
 export const Footer = () => {
   return (
     <footer
-      className="bg-gray-900
+      className="bg-primarydark
                     justify-between
                     items-center
                     flex-col
@@ -15,7 +15,7 @@ export const Footer = () => {
                     space-y-8
   "
     >
-      <div className="font-normal text-gray-400 text-center">
+      <div className="font-normal text-center text-white">
         © Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste commodi
         sit quaerat aperiam, exercitationem id eius error explicabo. Quibusdam,
         quod cupiditate? Voluptatem, nisi sint. Ipsa incidunt quia voluptatum
