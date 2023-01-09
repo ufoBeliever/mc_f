@@ -11,7 +11,7 @@ export const NewsItem: React.FC = () => {
     "https://vignette4.wikia.nocookie.net/spongebob/images/9/90/Born_to_Be_Wild_045a.png/revision/latest?cb=20130713151323";
   const date = new Date();
   return (
-    <article>
+    <article className="m-8">
       <Heading label={title} />
       <div className="my-8 flex flex-col items-center text-center md:block md:text-start">
         <img

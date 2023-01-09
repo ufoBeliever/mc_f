@@ -32,12 +32,17 @@ export const Header = () => {
                 xl:px-14"
       >
         <Link to="/">
-          <img
-            onClick={() => setOpenHambuger(false)}
-            src={require("../../assets/logo.png")}
-            className="h-12"
-            alt="logo"
-          />
+          <div className="flex items-center">
+            <img
+              onClick={() => setOpenHambuger(false)}
+              src={require("../../assets/logo.png")}
+              className="h-20"
+              alt="logo"
+            />
+            <span className="text-secondarydark font-semibold text-xl uppercase underline">
+              Best MC ever
+            </span>
+          </div>
         </Link>
         <nav>
           <ul className="hidden xl:space-x-20 lg:space-x-14 md:space-x-10 sm:space-x-6 sm:flex">

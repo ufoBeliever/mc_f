@@ -1,5 +1,5 @@
 import React from "react";
-import { NewsPreview } from "../../components";
+import { NewsPreview, SloganWrapper } from "../../components";
 
 export const Home = () => {
   const article = {
@@ -10,7 +10,10 @@ export const Home = () => {
   };
   return (
     <div>
-      <NewsPreview {...article} />
+      <SloganWrapper />
+      <div className="m-8">
+        <NewsPreview {...article} />
+      </div>
     </div>
   );
 };

@@ -7,7 +7,7 @@ export const News = () => {
   const [paginationValue, setPaginationValue] = useState<number>(1);
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center m-8">
       <Heading label="Latest news of Best MC ever" />
       <div className="flex flex-wrap justify-around gap-8 my-8">
         <div className="hidden" />
