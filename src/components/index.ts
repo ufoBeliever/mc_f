@@ -9,3 +9,5 @@ export * from "./Share";
 export * from "./SloganWrapper";
 export * from "./ImageViewer";
 export * from "./Modal";
+export * from "./Loading";
+export * from "./Error";
