@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Layout, Home, News, NewsItem } from "./pages";
+import { Layout, Home, News, NewsItem, Gallery } from "./pages";
 
 export const App = () => {
   return (
@@ -9,6 +9,7 @@ export const App = () => {
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/news/" element={<News />} />
+          <Route path="/gallery/" element={<Gallery />} />
           <Route path="/news/:id" element={<NewsItem />} />
         </Route>
       </Routes>

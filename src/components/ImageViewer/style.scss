@@ -1,0 +1,23 @@
+@media screen and (max-height: 550px) {
+  .bottom-buttons {
+    display: none !important;
+  }
+}
+
+@media screen and (max-height: 550px) {
+  .image {
+    height: 300px !important;
+  }
+}
+
+@media screen and (max-height: 480px) {
+  .image {
+    height: 250px !important;
+  }
+}
+
+@media screen and (max-height: 430px) {
+  .image {
+    height: 180px !important;
+  }
+}

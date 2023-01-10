@@ -7,3 +7,5 @@ export * from "./Pagination";
 export * from "./PaginationButton";
 export * from "./Share";
 export * from "./SloganWrapper";
+export * from "./ImageViewer";
+export * from "./Modal";
