@@ -4,3 +4,4 @@ export * from "./Header";
 export * from "./News";
 export * from "./NewsItem";
 export * from "./Gallery";
+export * from "./GalleryAlbum";

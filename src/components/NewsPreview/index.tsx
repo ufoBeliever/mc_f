@@ -48,7 +48,7 @@ export const NewsPreview = () => {
           <img
             src={fetchData.image}
             className="h-80 w-80 object-cover rounded-md xl:h-96 xl:w-96"
-            alt="Article preview"
+            alt=""
           />
           <span className="ml-24 font-normal text-2xl hidden xl:inline text-white">
             {cutStr(fetchData.descr, 300)}{" "}
@@ -77,7 +77,7 @@ export const NewsPreview = () => {
         className="flex
                w-full
                justify-between
-               pt-5
+               mt-8
                flex-col
                items-center
                lg:hidden
@@ -88,7 +88,7 @@ export const NewsPreview = () => {
         <img
           src={fetchData.image}
           className="md:h-72 md:w-72 h-96 w-96 object-cover rounded-md xl:h-96 xl:w-96"
-          alt="Article preview"
+          alt=""
         />
         <span className="font-normal mt-4 text-xl text-center md:text-left xl:text-2xl md:ml-10 md:mt-0 text-white">
           {cutStr(fetchData.descr, 230)}{" "}

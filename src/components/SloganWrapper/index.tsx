@@ -53,7 +53,7 @@ export const SloganWrapper = () => {
         </div>
         <img
           src={require("../../assets/bike.png")}
-          alt="bike"
+          alt=""
           className="w-64
           lg:w-80
           2xl:w-96"

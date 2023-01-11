@@ -70,7 +70,7 @@ export const ImageViewer: React.FC<ImageViewerProps> = ({
       <div className="flex justify-center sm:justify-between items-center">
         <div className="hidden sm:block">{nextButton}</div>
         <img
-          alt="current"
+          alt=""
           src={images[index]}
           className="h-44 lg:h-64 xl:h-80 object-cover rounded image"
         />

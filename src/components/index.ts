@@ -11,3 +11,4 @@ export * from "./ImageViewer";
 export * from "./Modal";
 export * from "./Loading";
 export * from "./Error";
+export * from "./AlbumCard";

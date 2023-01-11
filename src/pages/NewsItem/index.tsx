@@ -35,11 +35,11 @@ export const NewsItem: React.FC = () => {
   return (
     <article className="m-8">
       <Heading label={fetchData.title} />
-      <div className="my-8 flex flex-col items-center text-center md:block md:text-start">
+      <div className="my-12 md:my-8 flex flex-col items-center text-center md:block md:text-start">
         <img
           src={fetchData.image}
           className="w-96 h-96 float-left object-cover rounded mb-8 md:mr-8"
-          alt="thumbnail"
+          alt=""
         />
         <p className="font-normal text-lg text-white">{fetchData.descr}</p>
       </div>

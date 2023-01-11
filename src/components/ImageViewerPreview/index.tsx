@@ -15,7 +15,7 @@ export const ImageViewerPreview: React.FC<ImageViewerPreviewProps> = ({
     >
       <img
         src={image}
-        alt="preview"
+        alt=""
         className="w-10 h-6 sm:w-24 sm:h-14 object-cover"
       />
     </button>

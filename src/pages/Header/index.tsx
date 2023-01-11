@@ -36,10 +36,10 @@ export const Header = () => {
             <img
               onClick={() => setOpenHambuger(false)}
               src={require("../../assets/logo.png")}
-              className="h-20"
-              alt="logo"
+              className="h-16"
+              alt=""
             />
-            <span className="text-secondarydark font-semibold text-xl uppercase underline">
+            <span className="text-secondarydark font-semibold text-xl uppercase">
               Best MC ever
             </span>
           </div>
