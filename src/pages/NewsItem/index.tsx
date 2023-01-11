@@ -33,7 +33,7 @@ export const NewsItem: React.FC = () => {
   }
 
   return (
-    <article className="m-8">
+    <article className="m-8 flex flex-col">
       <Heading label={fetchData.title} />
       <div className="my-12 md:my-8 flex flex-col items-center text-center md:block md:text-start">
         <img
@@ -43,7 +43,7 @@ export const NewsItem: React.FC = () => {
         />
         <p className="font-normal text-lg text-white">{fetchData.descr}</p>
       </div>
-      <div className="w-screen flex items-start justify-between space-y-2 flex-col md:flex-row md:items-center md:space-y-0">
+      <div className="flex items-start justify-between space-y-2 flex-col md:flex-row md:items-center md:space-y-0">
         <span className="text-white font-medium text-base md:text-xl">
           Publish date:{" "}
           {new Date(fetchData.creation_date).toLocaleString("ru-RU")}
