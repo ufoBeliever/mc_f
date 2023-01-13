@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AlbumCard } from "../../components";
+import { AlbumCard, Heading } from "../../components";
 import "./style.scss";
 
 export const Gallery = () => {
@@ -12,11 +12,14 @@ export const Gallery = () => {
   ];
   return (
     <div className="flex justify-around flex-col m-8 space-y-4">
-      <AlbumCard img={images} title={`Album number 1`} album_id={"wgwgrg"} />
-      <AlbumCard img={images} title={`Album number 1`} album_id={"wgwgrg"} />
-      <AlbumCard img={images} title={`Album number 1`} album_id={"wgwgrg"} />
-      <AlbumCard img={images} title={`Album number 1`} album_id={"wgwgrg"} />
-      <AlbumCard img={images} title={`Album number 1`} album_id={"wgwgrg"} />
+      <Heading label="Check out our most popular galleries" />
+      <div className="mt-12 md:mt-8 flex flex-col">
+        <AlbumCard img={images} title={`Album number 1`} album_id={"wgwgrg"} />
+        <AlbumCard img={images} title={`Album number 1`} album_id={"wgwgrg"} />
+        <AlbumCard img={images} title={`Album number 1`} album_id={"wgwgrg"} />
+        <AlbumCard img={images} title={`Album number 1`} album_id={"wgwgrg"} />
+        <AlbumCard img={images} title={`Album number 1`} album_id={"wgwgrg"} />
+      </div>
     </div>
   );
 };

@@ -10,8 +10,10 @@ export const AlbumCard: React.FC<AlbumCardProps> = ({
   return (
     <Link to={`/gallery/${album_id}`}>
       <div className="hover:bg-secondarygreen p-8 rounded hidden md:block">
-        <Heading label={title} className={"text-start"} />
-        <div className="flex items-center justify-between gap-8 w-full mt-12">
+        <h2 className="font-semibold text-2xl text-start text-white">
+          {title}
+        </h2>
+        <div className="flex items-center justify-between gap-8 w-full mt-6">
           {img.slice(0, 5).map((e, i) => {
             return (
               <div className="rounded hidden xl:block" key={i}>
