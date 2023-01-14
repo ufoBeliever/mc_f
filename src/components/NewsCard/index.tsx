@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.scss";
 import { NewsCardProps } from "../NewsCard/types";
 import { MdArticle } from "react-icons/md";
-import { cutStr } from "../../utils/commonFuncs";
+import { cutStr } from "../../utils";
 import { Link } from "react-router-dom";
 
 export const NewsCard: React.FC<NewsCardProps> = ({ text, title, id }) => {

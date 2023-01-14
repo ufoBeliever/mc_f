@@ -1,27 +1,20 @@
-import React, { useEffect, useState } from "react";
 import "./styles.scss";
 import { Heading } from "../Heading";
 import { PrimaryButton } from "../PrimaryButton";
 import { Link } from "react-router-dom";
-import { cutStr, fetch } from "../../utils/commonFuncs";
-import { FetchNewsPreview, NewsArticle } from "./types";
+import { cutStr } from "../../utils";
+import { FetchNewsPreview } from "./types";
 import { Loading } from "../Loading";
+import { useQuery } from "../../hooks";
 
 export const NewsPreview = () => {
-  const [fetchData, setFetchData] = useState<NewsArticle | null>(null);
-  const [fetchError, setFetchError] = useState(false);
+  const { data, loading, error } = useQuery<FetchNewsPreview>("/");
 
-  useEffect(() => {
-    fetch<FetchNewsPreview>("/")
-      .then((res) => setFetchData(res.data.results[0]))
-      .catch(() => setFetchError(true));
-  }, []);
-
-  if (fetchError) {
+  if (error) {
     return null;
   }
 
-  if (!fetchData) {
+  if (loading) {
     return (
       <div>
         <Heading label="Find out about our latest news" />
@@ -46,21 +39,21 @@ export const NewsPreview = () => {
        transition"
         >
           <img
-            src={fetchData.image}
+            src={data!.results[0].image}
             className="h-80 w-80 object-cover rounded-md xl:h-96 xl:w-96"
             alt=""
           />
           <span className="ml-24 font-normal text-2xl hidden xl:inline text-white">
-            {cutStr(fetchData.descr, 300)}{" "}
-            <Link to={`/news/${fetchData.slug}`}>
+            {cutStr(data!.results[0].descr, 300)}{" "}
+            <Link to={`/news/${data!.results[0].slug}`}>
               <span className="text-secondarydark hover:underline">
                 Read more...
               </span>
             </Link>
           </span>
           <span className="ml-24 font-normal text-xl inline xl:hidden xl:text-2xl text-white">
-            {cutStr(fetchData.descr, 180)}{" "}
-            <Link to={`/news/${fetchData.slug}`}>
+            {cutStr(data!.results[0].descr, 180)}{" "}
+            <Link to={`/news/${data!.results[0].slug}`}>
               <span className="text-secondarydark hover:underline">
                 Read more...
               </span>
@@ -86,13 +79,13 @@ export const NewsPreview = () => {
                md:items-start"
       >
         <img
-          src={fetchData.image}
+          src={data!.results[0].image}
           className="md:h-72 md:w-72 h-96 w-96 object-cover rounded-md xl:h-96 xl:w-96"
           alt=""
         />
         <span className="font-normal mt-4 text-xl text-center md:text-left xl:text-2xl md:ml-10 md:mt-0 text-white">
-          {cutStr(fetchData.descr, 230)}{" "}
-          <Link to={`/news/${fetchData.slug}`}>
+          {cutStr(data!.results[0].descr, 230)}{" "}
+          <Link to={`/news/${data!.results[0].slug}`}>
             <span className="text-primarygreen hover:underline">
               Read more...
             </span>

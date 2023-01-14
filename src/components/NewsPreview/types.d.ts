@@ -5,7 +5,7 @@ export interface FetchNewsPreview {
   results: Array<NewsArticle>;
 }
 
-interface NewsArticle {
+export interface NewsArticle {
   title: string;
   slug: string;
   descr: string;

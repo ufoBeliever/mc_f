@@ -7,7 +7,7 @@ import {
   Error,
 } from "../../components";
 import { FetchNewsPreview } from "../../components/NewsPreview/types";
-import { fetch } from "../../utils/commonFuncs";
+import { fetch } from "../../utils";
 
 export const News = () => {
   const [paginationValue, setPaginationValue] = useState<number>(1);
