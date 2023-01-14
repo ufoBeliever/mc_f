@@ -19,7 +19,7 @@ export const Share: React.FC<ShareProps> = ({ text }) => {
         <BsWhatsapp size="28px" color="#1D6434" />
       </a>
       <a
-        href={`http://twitter.com/share?text=${text}&url=${url}&hashtags=mc, bestmcever, bikers, motorcycleclub`}
+        href={`http://twitter.com/share?text=${text}&url=${url}&hashtags=mc, neverstop, bikers, motorcycleclub`}
       >
         <BsTwitter size="28px" color="#1D6434" />
       </a>

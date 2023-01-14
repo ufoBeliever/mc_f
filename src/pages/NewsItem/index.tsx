@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import { Heading, Loading, Share, Error } from "../../components";
 import { NewsArticle } from "../../components/NewsPreview/types";
 import { useQuery } from "../../hooks";
-import { fetch } from "../../utils";
 
 export const NewsItem: React.FC = () => {
   const { id } = useParams();
@@ -41,7 +40,7 @@ export const NewsItem: React.FC = () => {
           Publish date: {new Date(data!.creation_date).toLocaleString("ru-RU")}
         </span>
         <Share
-          text={"Check out new article from the best MC ever: " + data!.title}
+          text={"Check out new article from the Never stop: " + data!.title}
         />
       </div>
     </article>

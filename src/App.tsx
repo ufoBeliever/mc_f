@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { GalleryAlbum } from "./pages";
+import { Auth, GalleryAlbum } from "./pages";
 import { Layout, Home, News, NewsItem, Gallery } from "./pages";
 
 export const App = () => {
@@ -13,6 +13,7 @@ export const App = () => {
           <Route path="/gallery/" element={<Gallery />} />
           <Route path="/gallery/:id" element={<GalleryAlbum />} />
           <Route path="/news/:id" element={<NewsItem />} />
+          <Route path="/auth" element={<Auth />} />
         </Route>
       </Routes>
     </BrowserRouter>

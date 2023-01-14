@@ -29,7 +29,7 @@ export const News = () => {
   if (fetchError) {
     return (
       <div className="flex flex-col items-center m-8 justify-between min-h-screen">
-        <Heading label="Latest news of Best MC ever" />
+        <Heading label="Latest news of Never stop" />
         <Error />
         <Pagination
           value={paginationValue}
@@ -43,7 +43,7 @@ export const News = () => {
   if (!fetchData) {
     return (
       <div className="flex flex-col items-center m-8 justify-between min-h-screen">
-        <Heading label="Latest news of Best MC ever" />
+        <Heading label="Latest news of Never stop" />
         <Loading />
         <Pagination
           value={paginationValue}
@@ -56,7 +56,7 @@ export const News = () => {
 
   return (
     <div className="flex flex-col items-center m-8">
-      <Heading label="Latest news of Best MC ever" />
+      <Heading label="Latest news of Never stop" />
       <div className="flex flex-wrap justify-around gap-8 my-12 md:my-8">
         <div className="hidden" />
         {fetchData.results.map((e) => {

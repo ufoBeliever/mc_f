@@ -23,7 +23,7 @@ export const Footer = () => {
       </div>
       <div className="h-px bg-white w-full" />
       <div className="flex items-center justify-between">
-        <div className="font-normal text-white">Best MC ever (2023)</div>
+        <div className="font-normal text-white">Never stop (2023)</div>
         <div className="flex space-x-2 sm:space-x-4">
           <a href="#">
             <BsInstagram size="24px" color="white" />

@@ -40,7 +40,7 @@ export const Header = () => {
               alt=""
             />
             <span className="text-secondarydark font-semibold text-xl uppercase">
-              Best MC ever
+              Never stop
             </span>
           </div>
         </Link>
