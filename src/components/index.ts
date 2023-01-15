@@ -12,3 +12,4 @@ export * from "./Modal";
 export * from "./Loading";
 export * from "./Error";
 export * from "./AlbumCard";
+export * from "./Input";

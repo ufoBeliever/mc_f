@@ -1,7 +1,5 @@
-import { HTMLAttributes } from "react";
-
 export interface ImageViewerPreviewProps
-  extends HTMLAttributes<HTMLButtonElement> {
+  extends React.ComponentPropsWithoutRef<"button"> {
   image: string;
   checked?: boolean;
 }

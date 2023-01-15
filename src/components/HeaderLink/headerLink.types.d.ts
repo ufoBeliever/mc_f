@@ -1,6 +1,5 @@
-import { HTMLAttributes } from "react";
-
-export interface HeaderLinkProps extends HTMLAttributes<HTMLButtonElement> {
+export interface HeaderLinkProps
+  extends React.ComponentPropsWithoutRef<"button"> {
   label: string;
   link: string;
   mobile?: boolean;

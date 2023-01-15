@@ -40,7 +40,9 @@ export const AlbumCard: React.FC<AlbumCardProps> = ({
       </div>
 
       <div className="hover:bg-secondarygreen p-8 rounded block md:hidden">
-        <Heading label={title} />
+        <h2 className="font-semibold text-2xl text-start text-white">
+          {title}
+        </h2>
         <div className="flex items-center justify-center w-full mt-8">
           <div className="rounded">
             <img

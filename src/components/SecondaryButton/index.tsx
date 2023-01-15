@@ -1,6 +1,9 @@
 import { SecondaryButtonProps } from "./types";
 
-export const SecondaryButton: React.FC<SecondaryButtonProps> = ({ label }) => {
+export const SecondaryButton: React.FC<SecondaryButtonProps> = ({
+  label,
+  ...rest
+}) => {
   return (
     <button
       className="bg-primarydark
@@ -16,6 +19,7 @@ export const SecondaryButton: React.FC<SecondaryButtonProps> = ({ label }) => {
                 rounded-md
                 hover:border-primarygreen
                 transition"
+      {...rest}
     >
       {label}
     </button>

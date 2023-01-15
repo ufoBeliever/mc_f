@@ -13,6 +13,7 @@ module.exports = {
       white: colors.white,
       transparent: colors.transparent,
       secondarygreen: "#0f381c",
+      red: "rgb(239 68 68)",
     },
   },
   plugins: [],

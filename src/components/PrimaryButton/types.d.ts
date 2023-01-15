@@ -1,5 +1,4 @@
-import { HTMLAttributes } from "react";
-
-export interface PrimaryButtonProps extends HTMLAttributes<HTMLButtonElement> {
+export interface PrimaryButtonProps
+  extends React.ComponentPropsWithoutRef<"button"> {
   label: string;
 }

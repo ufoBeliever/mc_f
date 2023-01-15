@@ -1,6 +1,4 @@
-import { HTMLAttributes } from "react";
-
 export interface SecondaryButtonProps
-  extends HTMLAttributes<HTMLButtonElement> {
+  extends React.ComponentPropsWithoutRef<"button"> {
   label: string;
 }

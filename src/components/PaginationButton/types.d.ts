@@ -1,7 +1,5 @@
-import { HTMLAttributes } from "react";
-
 export interface PaginationButtonProps
-  extends HTMLAttributes<HTMLButtonElement> {
+  extends React.ComponentPropsWithoutRef<"button"> {
   num: number | string;
   checked?: boolean;
 }
