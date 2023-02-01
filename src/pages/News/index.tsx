@@ -18,7 +18,7 @@ export const News = () => {
 
   useEffect(() => {
     setFetchData(null);
-    fetch<FetchNewsPreview>(`/?limit=10&offset=${paginationValue - 1 + "0"}`)
+    fetch<FetchNewsPreview>(`/?limit=12&offset=${paginationValue - 1 + "0"}`)
       .then((res) => {
         setFetchData(res.data);
         setLimit(res.data.count);
@@ -33,7 +33,7 @@ export const News = () => {
         <Error />
         <Pagination
           value={paginationValue}
-          limit={Math.ceil(limit / 10)}
+          limit={Math.ceil(limit / 12)}
           setValue={setPaginationValue}
         />
       </div>
@@ -47,7 +47,7 @@ export const News = () => {
         <Loading />
         <Pagination
           value={paginationValue}
-          limit={Math.ceil(limit / 10)}
+          limit={Math.ceil(limit / 12)}
           setValue={setPaginationValue}
         />
       </div>
@@ -57,7 +57,7 @@ export const News = () => {
   return (
     <div className="flex flex-col items-center m-8">
       <Heading label="Latest news of Never stop" />
-      <div className="flex flex-wrap justify-around gap-8 my-12 md:my-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8 my-12 md:my-8">
         <div className="hidden" />
         {fetchData.results.map((e) => {
           return (
@@ -67,7 +67,7 @@ export const News = () => {
       </div>
       <Pagination
         value={paginationValue}
-        limit={Math.ceil(limit / 10)}
+        limit={Math.ceil(limit / 12)}
         setValue={setPaginationValue}
       />
     </div>

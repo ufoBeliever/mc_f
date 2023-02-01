@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Heading, ImageViewer, Modal } from "../../components";
+import "./styles.scss";
 
 export const GalleryAlbum = () => {
   const [imageIndex, setImageIndex] = useState<number>(0);
@@ -67,15 +68,15 @@ export const GalleryAlbum = () => {
       <Heading label="Album number 1" />
       <div
         className="mt-12
-      flex
-      items-center
-      gap-8
-      justify-center
-      flex-col
-      md:mt-8
-      md:justify-between
-      md:flex-wrap
-      md:flex-row"
+                  grid
+                  grid-cols-1
+                  md:grid-cols-2
+                  xl:grid-cols-3
+                  2xl:grid-cols-4
+                  gap-8
+                  md:mt-8
+                  justify-items-center
+                  items-center"
       >
         {images.map((e, i) => {
           return (
@@ -88,6 +89,7 @@ export const GalleryAlbum = () => {
               transition
               border-transparent
               hover:border-primarygreen
+              object-cover
               h-48
               cursor-pointer"
               onClick={() => {

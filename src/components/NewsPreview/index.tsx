@@ -1,6 +1,6 @@
 import "./styles.scss";
 import { Heading } from "../Heading";
-import { PrimaryButton } from "../PrimaryButton";
+import { Button } from "../Button";
 import { Link } from "react-router-dom";
 import { cutStr } from "../../utils";
 import { FetchNewsPreview } from "./types";
@@ -62,7 +62,7 @@ export const NewsPreview = () => {
         </div>
         <div className="self-end w-full flex flex-col">
           <Link to="/news" className="self-end">
-            <PrimaryButton label="View all latest news" />
+            <Button label="View all latest news" isPrimary={true} />
           </Link>
         </div>
       </div>

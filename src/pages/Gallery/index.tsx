@@ -1,6 +1,4 @@
-import { useState } from "react";
 import { AlbumCard, Heading } from "../../components";
-import "./style.scss";
 
 export const Gallery = () => {
   const images = [

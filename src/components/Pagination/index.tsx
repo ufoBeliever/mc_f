@@ -1,5 +1,4 @@
 import { PaginationButton } from "../PaginationButton";
-import { GrNext, GrPrevious } from "react-icons/gr";
 import React from "react";
 import { PaginationProps } from "./types";
 import { MdOutlineNavigateNext } from "react-icons/md";

@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Heading, Input, PrimaryButton } from "../../components";
-import { SecondaryButton } from "../../components/SecondaryButton";
+import { Heading, Input, Button } from "../../components";
 
 export const Auth = () => {
   const [formData, setFormData] = useState({
@@ -62,8 +61,8 @@ export const Auth = () => {
           onChange={(e) => setField("password2", e.target.value)}
         />
         <div className="flex justify-between w-full">
-          <SecondaryButton label="Reset" onClick={resetForm} type="reset" />
-          <PrimaryButton label="Submit" type="submit" />
+          <Button label="Reset" onClick={resetForm} type="reset" />
+          <Button label="Submit" type="submit" isPrimary={true} />
         </div>
       </form>
     </div>
