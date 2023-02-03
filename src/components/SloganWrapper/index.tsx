@@ -51,13 +51,25 @@ export const SloganWrapper = () => {
             blanditiis possimus, laboriosam laudantium tenetur.
           </div>
         </div>
-        <img
-          src={require("../../assets/bike.png")}
-          alt=""
+        <div
           className="w-64
           lg:w-80
-          2xl:w-96"
-        />
+          2xl:w-96
+          flex
+          flex-col
+          items-center"
+        >
+          <img
+            src={require("../../assets/logo1.png")}
+            alt=""
+            className="w-full absolute w-80 lg:w-96"
+          />
+          <img
+            src={require("../../assets/logo2.png")}
+            alt=""
+            className="w-48 lg:w-64 rounded-md mt-32 lg:mt-40"
+          />
+        </div>
       </div>
     </div>
   );
