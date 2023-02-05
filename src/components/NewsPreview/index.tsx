@@ -8,7 +8,7 @@ import { Loading } from "../Loading";
 import { useQuery } from "../../hooks";
 
 export const NewsPreview = () => {
-  const { data, loading, error } = useQuery<FetchNewsPreview>("/");
+  const { data, loading, error } = useQuery<FetchNewsPreview>("/news");
 
   if (error) {
     return null;

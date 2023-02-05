@@ -7,7 +7,9 @@ export const cutStr = (str: string, ln: number) => {
 
 export const fetch = async <T>(url: string): Promise<Fetch<T> | never> => {
   try {
+    console.log(process.env.REACT_APP_DOMAIN + url);
     const { data } = await axios.get(process.env.REACT_APP_DOMAIN + url);
+
     return {
       error: false,
       data,

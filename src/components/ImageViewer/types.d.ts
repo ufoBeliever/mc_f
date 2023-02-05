@@ -1,7 +1,6 @@
 export interface ImageViewerProps {
-  images: Array<string>;
+  images: Array<any>;
   index: number;
-  isShown: boolean;
   setIsShown: React.Dispatch<React.SetStateAction<boolean>>;
   setIndex: React.Dispatch<React.SetStateAction<number>>;
 }

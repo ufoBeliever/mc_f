@@ -8,7 +8,6 @@ export const ImageViewer: React.FC<ImageViewerProps> = ({
   images,
   index,
   setIndex,
-  isShown,
   setIsShown,
 }) => {
   const nextImage = () => {
@@ -71,7 +70,7 @@ export const ImageViewer: React.FC<ImageViewerProps> = ({
         <div className="hidden sm:block">{nextButton}</div>
         <img
           alt=""
-          src={images[index]}
+          src={images[index].image}
           className="h-44 lg:h-64 xl:h-80 object-cover rounded image"
         />
         <div className="hidden sm:block">{prevButton}</div>
@@ -82,7 +81,7 @@ export const ImageViewer: React.FC<ImageViewerProps> = ({
           return (
             <ImageViewerPreview
               key={e}
-              image={images[e]}
+              image={images[e].image}
               checked={index === e}
               onClick={() => setIndex(e)}
             />

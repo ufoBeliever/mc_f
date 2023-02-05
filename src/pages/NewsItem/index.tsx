@@ -6,7 +6,7 @@ import { useQuery } from "../../hooks";
 
 export const NewsItem: React.FC = () => {
   const { id } = useParams();
-  const { data, loading, error } = useQuery<NewsArticle>(`/${id}`);
+  const { data, loading, error } = useQuery<NewsArticle>(`/news/${id}`);
 
   if (error) {
     return (

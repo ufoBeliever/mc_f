@@ -1,43 +1,27 @@
 import { useState } from "react";
-import { Heading, ImageViewer, Modal } from "../../components";
+import { Error, Heading, ImageViewer, Loading, Modal } from "../../components";
+import { useQuery } from "../../hooks";
 import "./styles.scss";
 
 export const GalleryAlbum = () => {
   const [imageIndex, setImageIndex] = useState<number>(0);
   const [isViewerShown, setIsViewerShown] = useState<boolean>(false);
+  const { data, loading, error } = useQuery<any>(`/album/trap_album/`);
 
-  const images = [
-    "https://c1.peakpx.com/wallpaper/218/94/384/cat-kitten-black-animal-pet-kitty-wallpaper.jpg",
-    "https://forum.archlabslinux.com/uploads/default/optimized/2X/8/8c39bbe5a075944837ff782134ee415abb3b1a44_2_1380x776.jpeg",
-    "https://1.bp.blogspot.com/-mKIdMWZR_-U/T3a3cR4Wp0I/AAAAAAAAGQc/kpyhXbnJ5BI/s1600/Capybara-02.JPG",
-    "https://static0.makeuseofimages.com/wordpress/wp-content/uploads/2018/10/Linux-Beta.jpg",
-    "https://static.haydenjames.io/wp-content/uploads/2017/05/Debian_18_05_2017_22_07_32.png",
-    "https://c1.peakpx.com/wallpaper/218/94/384/cat-kitten-black-animal-pet-kitty-wallpaper.jpg",
-    "https://forum.archlabslinux.com/uploads/default/optimized/2X/8/8c39bbe5a075944837ff782134ee415abb3b1a44_2_1380x776.jpeg",
-    "https://1.bp.blogspot.com/-mKIdMWZR_-U/T3a3cR4Wp0I/AAAAAAAAGQc/kpyhXbnJ5BI/s1600/Capybara-02.JPG",
-    "https://static0.makeuseofimages.com/wordpress/wp-content/uploads/2018/10/Linux-Beta.jpg",
-    "https://static.haydenjames.io/wp-content/uploads/2017/05/Debian_18_05_2017_22_07_32.png",
-    "https://c1.peakpx.com/wallpaper/218/94/384/cat-kitten-black-animal-pet-kitty-wallpaper.jpg",
-    "https://forum.archlabslinux.com/uploads/default/optimized/2X/8/8c39bbe5a075944837ff782134ee415abb3b1a44_2_1380x776.jpeg",
-    "https://1.bp.blogspot.com/-mKIdMWZR_-U/T3a3cR4Wp0I/AAAAAAAAGQc/kpyhXbnJ5BI/s1600/Capybara-02.JPG",
-    "https://static0.makeuseofimages.com/wordpress/wp-content/uploads/2018/10/Linux-Beta.jpg",
-    "https://static.haydenjames.io/wp-content/uploads/2017/05/Debian_18_05_2017_22_07_32.png",
-    "https://c1.peakpx.com/wallpaper/218/94/384/cat-kitten-black-animal-pet-kitty-wallpaper.jpg",
-    "https://forum.archlabslinux.com/uploads/default/optimized/2X/8/8c39bbe5a075944837ff782134ee415abb3b1a44_2_1380x776.jpeg",
-    "https://1.bp.blogspot.com/-mKIdMWZR_-U/T3a3cR4Wp0I/AAAAAAAAGQc/kpyhXbnJ5BI/s1600/Capybara-02.JPG",
-    "https://static0.makeuseofimages.com/wordpress/wp-content/uploads/2018/10/Linux-Beta.jpg",
-    "https://static.haydenjames.io/wp-content/uploads/2017/05/Debian_18_05_2017_22_07_32.png",
-    "https://c1.peakpx.com/wallpaper/218/94/384/cat-kitten-black-animal-pet-kitty-wallpaper.jpg",
-    "https://forum.archlabslinux.com/uploads/default/optimized/2X/8/8c39bbe5a075944837ff782134ee415abb3b1a44_2_1380x776.jpeg",
-    "https://1.bp.blogspot.com/-mKIdMWZR_-U/T3a3cR4Wp0I/AAAAAAAAGQc/kpyhXbnJ5BI/s1600/Capybara-02.JPG",
-    "https://static0.makeuseofimages.com/wordpress/wp-content/uploads/2018/10/Linux-Beta.jpg",
-    "https://static.haydenjames.io/wp-content/uploads/2017/05/Debian_18_05_2017_22_07_32.png",
-    "https://c1.peakpx.com/wallpaper/218/94/384/cat-kitten-black-animal-pet-kitty-wallpaper.jpg",
-    "https://forum.archlabslinux.com/uploads/default/optimized/2X/8/8c39bbe5a075944837ff782134ee415abb3b1a44_2_1380x776.jpeg",
-    "https://1.bp.blogspot.com/-mKIdMWZR_-U/T3a3cR4Wp0I/AAAAAAAAGQc/kpyhXbnJ5BI/s1600/Capybara-02.JPG",
-    "https://static0.makeuseofimages.com/wordpress/wp-content/uploads/2018/10/Linux-Beta.jpg",
-    "https://static.haydenjames.io/wp-content/uploads/2017/05/Debian_18_05_2017_22_07_32.png",
-  ];
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <Error />
+      </div>
+    );
+  } else if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <Loading />
+      </div>
+    );
+  }
+
   return (
     <div className="m-8">
       {isViewerShown ? (
@@ -56,10 +40,9 @@ export const GalleryAlbum = () => {
                     p-4"
           >
             <ImageViewer
-              images={images}
+              images={data.results}
               index={imageIndex}
               setIndex={setImageIndex}
-              isShown={isViewerShown}
               setIsShown={setIsViewerShown}
             />
           </div>
@@ -78,12 +61,12 @@ export const GalleryAlbum = () => {
                   justify-items-center
                   items-center"
       >
-        {images.map((e, i) => {
+        {data.results.map((e: any, i: any) => {
           return (
             <img
               key={i}
               alt=""
-              src={e}
+              src={e.image}
               className="border-4
               rounded
               transition

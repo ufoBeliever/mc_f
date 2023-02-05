@@ -18,7 +18,9 @@ export const News = () => {
 
   useEffect(() => {
     setFetchData(null);
-    fetch<FetchNewsPreview>(`/?limit=12&offset=${(paginationValue - 1) * 12}`)
+    fetch<FetchNewsPreview>(
+      `/news?limit=12&offset=${(paginationValue - 1) * 12}`
+    )
       .then((res) => {
         setFetchData(res.data);
         setLimit(res.data.count);
