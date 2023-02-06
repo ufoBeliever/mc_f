@@ -46,10 +46,10 @@ export const Header = () => {
         </Link>
         <nav>
           <ul className="hidden xl:space-x-20 lg:space-x-14 md:space-x-10 sm:space-x-6 sm:flex">
-            {headerOptions.map((el, id) => {
+            {headerOptions.map(({ title, link }, id) => {
               return (
                 <li key={id}>
-                  <HeaderLink label={el.title} link={el.link} />
+                  <HeaderLink label={title} link={link} />
                 </li>
               );
             })}
@@ -73,15 +73,15 @@ export const Header = () => {
       >
         <nav className="m-8">
           <ul className="flex flex-col items-center space-y-6">
-            {headerOptions.map((el, id) => {
+            {headerOptions.map(({ title, link }, id) => {
               return (
                 <li
                   key={id}
                   className="space-y-6 w-full flex items-center flex-col"
                 >
                   <HeaderLink
-                    label={el.title}
-                    link={el.link}
+                    label={title}
+                    link={link}
                     mobile={true}
                     onClick={() => setOpenHambuger(false)}
                   />

@@ -6,7 +6,7 @@ import "./styles.scss";
 export const GalleryAlbum = () => {
   const [imageIndex, setImageIndex] = useState<number>(0);
   const [isViewerShown, setIsViewerShown] = useState<boolean>(false);
-  const { data, loading, error } = useQuery<any>(`/album/trap_album/`);
+  const { data, loading, error } = useQuery<any>(`/album/linux/`);
 
   if (error) {
     return (
@@ -21,6 +21,8 @@ export const GalleryAlbum = () => {
       </div>
     );
   }
+
+  const { results } = data;
 
   return (
     <div className="m-8">
@@ -40,7 +42,7 @@ export const GalleryAlbum = () => {
                     p-4"
           >
             <ImageViewer
-              images={data.results}
+              images={results}
               index={imageIndex}
               setIndex={setImageIndex}
               setIsShown={setIsViewerShown}
@@ -61,12 +63,12 @@ export const GalleryAlbum = () => {
                   justify-items-center
                   items-center"
       >
-        {data.results.map((e: any, i: any) => {
+        {results.map(({ image }: any, i: any) => {
           return (
             <img
               key={i}
               alt=""
-              src={e.image}
+              src={image}
               className="border-4
               rounded
               transition

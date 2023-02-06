@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetch } from "../utils";
+import { fetchApi } from "../utils";
 
 interface QueryType<T> {
   data: T | null;
@@ -15,10 +15,10 @@ export const useQuery = <T>(url: string) => {
   });
 
   useEffect(() => {
-    fetch<T>(url)
-      .then((res) =>
+    fetchApi<T>(url)
+      .then(({ data }) =>
         setFetchData({
-          data: res.data,
+          data,
           loading: false,
           error: false,
         })

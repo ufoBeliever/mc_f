@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { Heading } from "../Heading";
 import { AlbumCardProps } from "./types";
 
 export const AlbumCard: React.FC<AlbumCardProps> = ({

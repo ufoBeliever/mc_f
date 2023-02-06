@@ -7,7 +7,7 @@ import {
   Error,
 } from "../../components";
 import { FetchNewsPreview } from "../../components/NewsPreview/types";
-import { fetch } from "../../utils";
+import { fetchApi } from "../../utils";
 
 export const News = () => {
   const [paginationValue, setPaginationValue] = useState<number>(1);
@@ -18,7 +18,7 @@ export const News = () => {
 
   useEffect(() => {
     setFetchData(null);
-    fetch<FetchNewsPreview>(
+    fetchApi<FetchNewsPreview>(
       `/news?limit=12&offset=${(paginationValue - 1) * 12}`
     )
       .then((res) => {
@@ -61,10 +61,8 @@ export const News = () => {
       <Heading label="Latest news of Never stop" />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8 my-12 md:my-8">
         <div className="hidden" />
-        {fetchData.results.map((e) => {
-          return (
-            <NewsCard key={e.slug} id={e.slug} title={e.title} text={e.descr} />
-          );
+        {fetchData.results.map(({ slug, title, descr }) => {
+          return <NewsCard key={slug} id={slug} title={title} text={descr} />;
         })}
       </div>
       <Pagination
