@@ -27,7 +27,7 @@ export const Auth = () => {
   const submitForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await axios.post(
-      process.env.REACT_APP_DOMAIN! + "/api/v1/registrate/",
+      process.env.REACT_APP_DOMAIN! + "/registrate/",
       formData
     );
   };

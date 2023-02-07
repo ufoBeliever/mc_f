@@ -1,5 +1,5 @@
 export interface AlbumCardProps {
-  img: Array<string>;
+  image: string;
   title: string;
   album_id: string;
 }

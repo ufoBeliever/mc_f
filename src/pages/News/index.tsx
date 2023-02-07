@@ -59,7 +59,16 @@ export const News = () => {
   return (
     <div className="flex flex-col items-center m-8">
       <Heading label="Latest news of Never stop" />
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8 my-12 md:my-8">
+      <div
+        className="grid
+      grid-cols-1
+      sm:grid-cols-2
+      lg:grid-cols-3
+      2xl:grid-cols-4
+      gap-8
+      my-12
+      md:my-8"
+      >
         <div className="hidden" />
         {fetchData.results.map(({ slug, title, descr }) => {
           return <NewsCard key={slug} id={slug} title={title} text={descr} />;

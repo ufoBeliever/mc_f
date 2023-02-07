@@ -1,12 +1,13 @@
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 import { Error, Heading, ImageViewer, Loading, Modal } from "../../components";
 import { useQuery } from "../../hooks";
-import "./styles.scss";
 
 export const GalleryAlbum = () => {
+  const { id } = useParams();
   const [imageIndex, setImageIndex] = useState<number>(0);
   const [isViewerShown, setIsViewerShown] = useState<boolean>(false);
-  const { data, loading, error } = useQuery<any>(`/album/linux/`);
+  const { data, loading, error } = useQuery<any>(`/album/${id}`);
 
   if (error) {
     return (
@@ -14,7 +15,8 @@ export const GalleryAlbum = () => {
         <Error />
       </div>
     );
-  } else if (loading) {
+  }
+  if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <Loading />
@@ -22,7 +24,7 @@ export const GalleryAlbum = () => {
     );
   }
 
-  const { results } = data;
+  const { images, title } = data;
 
   return (
     <div className="m-8">
@@ -38,11 +40,11 @@ export const GalleryAlbum = () => {
                     flex
                     justify-center
                     items-center
-                    modal
+                    bg-modal-bg-8
                     p-4"
           >
             <ImageViewer
-              images={results}
+              images={images}
               index={imageIndex}
               setIndex={setImageIndex}
               setIsShown={setIsViewerShown}
@@ -50,7 +52,7 @@ export const GalleryAlbum = () => {
           </div>
         </Modal>
       ) : null}
-      <Heading label="Album number 1" />
+      <Heading label={title} />
       <div
         className="mt-12
                   grid
@@ -63,12 +65,12 @@ export const GalleryAlbum = () => {
                   justify-items-center
                   items-center"
       >
-        {results.map(({ image }: any, i: any) => {
+        {images.map(({ image }: any, i: any) => {
           return (
             <img
               key={i}
               alt=""
-              src={image}
+              src={process.env.REACT_APP_DOMAIN_MEDIA! + image}
               className="border-4
               rounded
               transition
