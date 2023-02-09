@@ -4,6 +4,7 @@ import { HeaderLink } from "../../components";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
 import "./styles.scss";
+import { setHidden } from "../../utils";
 
 export const Header = () => {
   const [openHamburger, setOpenHambuger] = useState<boolean>(false);
@@ -56,7 +57,12 @@ export const Header = () => {
           </ul>
         </nav>
         <div className="flex sm:hidden">
-          <button onClick={setHamburgerHandler}>
+          <button
+            onClick={() => {
+              setHamburgerHandler();
+              setHidden();
+            }}
+          >
             {openHamburger ? (
               <AiOutlineClose color="white" size="40px" />
             ) : (

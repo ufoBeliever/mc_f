@@ -3,13 +3,38 @@ import { ImageViewerPreview } from "../ImageViewerPreview";
 import { AiOutlineClose } from "react-icons/ai";
 import { ImageViewerProps } from "./types";
 import "./style.scss";
+import { setHidden } from "../../utils";
+import { useEffect, useRef } from "react";
 
 export const ImageViewer: React.FC<ImageViewerProps> = ({
   images,
   index,
   setIndex,
   setIsShown,
+  imageRef,
 }) => {
+  const viewerRef = useRef<HTMLDivElement | null>(null);
+  const viewerRefMobile = useRef<HTMLDivElement | null>(null);
+
+  const closeViewer = (e: Event) => {
+    if (
+      !viewerRef.current?.contains(e.target as Document) &&
+      !imageRef.current?.contains(e.target as Document) &&
+      !viewerRefMobile.current?.contains(e.target as Document)
+    ) {
+      setIsShown(false);
+      setHidden();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", closeViewer);
+
+    return () => {
+      document.removeEventListener("click", closeViewer);
+    };
+  }, []);
+
   const nextImage = () => {
     if (index !== images.length - 1) {
       setIndex((prev) => prev + 1);
@@ -40,55 +65,102 @@ export const ImageViewer: React.FC<ImageViewerProps> = ({
 
   const nextButton = (
     <button
-      className="rounded-full hover:bg-secondarygreen p-2 disabled:bg-transparent"
+      className="rounded-full
+      hover:bg-secondarygreen
+      p-2
+      disabled:bg-transparent
+      relative
+      h-16
+      w-16"
       onClick={prevImage}
     >
-      <MdOutlineNavigateNext size="30px" color="white" className="rotate-180" />
+      <MdOutlineNavigateNext size="100%" color="white" className="rotate-180" />
     </button>
   );
 
   const prevButton = (
     <button
-      className="rounded-full hover:bg-secondarygreen p-2 disabled:bg-transparent"
+      className="rounded-full
+      hover:bg-secondarygreen
+      p-2
+      disabled:bg-transparent
+      relative
+      h-16
+      w-16"
       onClick={nextImage}
     >
-      <MdOutlineNavigateNext size="30px" color="white" />
+      <MdOutlineNavigateNext size="100%" color="white" />
     </button>
   );
 
   return (
-    <div className="bg-primarydark w-5/6 sm:w-4/5 md:w-2/3 rounded-md p-4 lg:p-8">
-      <div className="flex flex-col items-end mb-4">
+    <>
+      <div
+        className="hidden lg:block bg-primarydark w-2/3 rounded-md p-8"
+        ref={viewerRef}
+      >
+        <div className="flex flex-col items-end mb-4">
+          <button
+            className="rounded-full hover:bg-secondarygreen p-2 disabled:bg-transparent"
+            onClick={() => {
+              setIsShown(false);
+              setHidden();
+            }}
+          >
+            <AiOutlineClose color="white" size="30px" />
+          </button>
+        </div>
+        <div className="flex justify-between items-center">
+          <div className="block">{nextButton}</div>
+          <img
+            alt=""
+            src={process.env.REACT_APP_DOMAIN_MEDIA! + images[index].image}
+            className="h-64 xl:h-80 object-cover rounded image"
+          />
+          <div className="block">{prevButton}</div>
+        </div>
+        <div className="flex items-center justify-center space-x-8 mt-8 bottom-buttons">
+          {fill(stage * 3).map((e) => {
+            return (
+              <ImageViewerPreview
+                key={e}
+                image={process.env.REACT_APP_DOMAIN_MEDIA! + images[e].image}
+                checked={index === e}
+                onClick={() => {
+                  setIndex(e);
+                }}
+              />
+            );
+          })}
+        </div>
+      </div>
+      <div
+        className="flex lg:hidden h-screen justify-between w-full items-center relative"
+        ref={viewerRefMobile}
+      >
         <button
-          className="rounded-full hover:bg-secondarygreen p-2 disabled:bg-transparent"
-          onClick={() => setIsShown(false)}
+          className="rounded-full
+          hover:bg-secondarygreen
+          p-2
+          disabled:bg-transparent
+          absolute
+          top-8
+          right-8"
+          onClick={() => {
+            setIsShown(false);
+            setHidden();
+          }}
         >
           <AiOutlineClose color="white" size="30px" />
         </button>
-      </div>
-      <div className="flex justify-center sm:justify-between items-center">
-        <div className="hidden sm:block">{nextButton}</div>
+        <div className="block">{nextButton}</div>
         <img
           alt=""
           src={process.env.REACT_APP_DOMAIN_MEDIA! + images[index].image}
-          className="h-44 lg:h-64 xl:h-80 object-cover rounded image"
+          className="w-1/2 object-cover rounded image max-h-screen"
         />
-        <div className="hidden sm:block">{prevButton}</div>
+        <div className="block">{prevButton}</div>
       </div>
-      <div className="flex items-center justify-center space-x-2 lg:space-x-8 mt-8 bottom-buttons">
-        <div className="block sm:hidden">{nextButton}</div>
-        {fill(stage * 3).map((e) => {
-          return (
-            <ImageViewerPreview
-              key={e}
-              image={process.env.REACT_APP_DOMAIN_MEDIA! + images[e].image}
-              checked={index === e}
-              onClick={() => setIndex(e)}
-            />
-          );
-        })}
-        <div className="block sm:hidden">{prevButton}</div>
-      </div>
-    </div>
+    </>
   );
 };

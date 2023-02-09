@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Error, Heading, ImageViewer, Loading, Modal } from "../../components";
 import { useQuery } from "../../hooks";
+import { setHidden } from "../../utils";
 
 export const GalleryAlbum = () => {
   const { id } = useParams();
   const [imageIndex, setImageIndex] = useState<number>(0);
   const [isViewerShown, setIsViewerShown] = useState<boolean>(false);
   const { data, loading, error } = useQuery<any>(`/album/${id}`);
+
+  const imageRef = useRef<HTMLImageElement | null>(null);
 
   if (error) {
     return (
@@ -41,9 +44,11 @@ export const GalleryAlbum = () => {
                     justify-center
                     items-center
                     bg-modal-bg-8
-                    p-4"
+                    p-4
+                    z-50"
           >
             <ImageViewer
+              imageRef={imageRef}
               images={images}
               index={imageIndex}
               setIndex={setImageIndex}
@@ -54,6 +59,7 @@ export const GalleryAlbum = () => {
       ) : null}
       <Heading label={title} />
       <div
+        ref={imageRef}
         className="mt-12
                   grid
                   grid-cols-1
@@ -82,6 +88,7 @@ export const GalleryAlbum = () => {
               onClick={() => {
                 setIsViewerShown(true);
                 setImageIndex(i);
+                setHidden();
               }}
             />
           );
