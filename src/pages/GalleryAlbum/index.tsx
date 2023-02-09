@@ -3,12 +3,13 @@ import { useParams } from "react-router-dom";
 import { Error, Heading, ImageViewer, Loading, Modal } from "../../components";
 import { useQuery } from "../../hooks";
 import { setHidden } from "../../utils";
+import { IAlbum } from "../Gallery/types";
 
 export const GalleryAlbum = () => {
   const { id } = useParams();
   const [imageIndex, setImageIndex] = useState<number>(0);
   const [isViewerShown, setIsViewerShown] = useState<boolean>(false);
-  const { data, loading, error } = useQuery<any>(`/album/${id}`);
+  const { data, loading, error } = useQuery<IAlbum>(`/album/${id}`);
 
   const imageRef = useRef<HTMLImageElement | null>(null);
 
@@ -27,7 +28,7 @@ export const GalleryAlbum = () => {
     );
   }
 
-  const { images, title } = data;
+  const { images, title } = data!;
 
   return (
     <div className="m-8">

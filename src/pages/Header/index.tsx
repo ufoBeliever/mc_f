@@ -46,7 +46,7 @@ export const Header = () => {
           </div>
         </Link>
         <nav>
-          <ul className="hidden xl:space-x-20 lg:space-x-14 md:space-x-10 sm:space-x-6 sm:flex">
+          <ul className="hidden xl:space-x-20 lg:space-x-14 md:space-x-10 lg:space-x-6 lg:flex">
             {headerOptions.map(({ title, link }, id) => {
               return (
                 <li key={id}>
@@ -56,7 +56,7 @@ export const Header = () => {
             })}
           </ul>
         </nav>
-        <div className="flex sm:hidden">
+        <div className="flex lg:hidden">
           <button
             onClick={() => {
               setHamburgerHandler();
@@ -73,7 +73,7 @@ export const Header = () => {
       </header>
       <div
         className={
-          "absolute w-full bg-primarydark sm:hidden burger mt-20 z-50 " +
+          "absolute w-full bg-primarydark lg:hidden burger mt-20 z-50 " +
           (openHamburger ? "burger_show" : "")
         }
       >

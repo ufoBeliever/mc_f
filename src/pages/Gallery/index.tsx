@@ -1,8 +1,9 @@
 import { AlbumCard, Heading, Loading, Error } from "../../components";
 import { useQuery } from "../../hooks";
+import { IGallery } from "./types";
 
 export const Gallery = () => {
-  const { data, loading, error } = useQuery<any>(`/album/?amount=1`);
+  const { data, loading, error } = useQuery<IGallery>(`/album/?amount=1`);
 
   if (error) {
     return (
@@ -24,12 +25,11 @@ export const Gallery = () => {
       <Heading label="Check out our most popular galleries" />
 
       <div className="mt-12 md:mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8">
-        {data.results.map((e: any) => {
+        {data!.results.map((e: any) => {
           return (
             <AlbumCard
-              image={
-                "https://mcb-production.up.railway.app" + e.images[0].image
-              }
+              key={e.slug}
+              image={process.env.REACT_APP_DOMAIN_MEDIA! + e.images[0].image}
               title={e.title}
               album_id={e.slug}
             />
