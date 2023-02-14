@@ -14,9 +14,7 @@ export const Header = () => {
   };
 
   const headerOptions = [
-    { title: "About", link: "/about" },
     { title: "News", link: "/news" },
-    { title: "Find us", link: "/locations" },
     { title: "Gallery", link: "/gallery" },
     { title: "Support our club", link: "/donations" },
   ];

@@ -6,3 +6,4 @@ export * from "./NewsItem";
 export * from "./Gallery";
 export * from "./GalleryAlbum";
 export * from "./Auth";
+export * from "./NotFound";

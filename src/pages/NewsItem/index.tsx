@@ -3,12 +3,16 @@ import { useParams } from "react-router-dom";
 import { Heading, Loading, Share, Error } from "../../components";
 import { NewsArticle } from "../../components/NewsPreview/types";
 import { useQuery } from "../../hooks";
+import { NotFound } from "../NotFound";
 
 export const NewsItem: React.FC = () => {
   const { id } = useParams();
   const { data, loading, error } = useQuery<NewsArticle>(`/news/${id}`);
 
   if (error) {
+    if (error.message === "AxiosError: Request failed with status code 404") {
+      return <NotFound />;
+    }
     return (
       <div className="min-h-screen flex justify-center items-center">
         <Error />

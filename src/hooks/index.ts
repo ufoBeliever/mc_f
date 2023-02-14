@@ -4,14 +4,14 @@ import { fetchApi } from "../utils";
 interface QueryType<T> {
   data: T | null;
   loading: boolean;
-  error: boolean;
+  error: any | null;
 }
 
 export const useQuery = <T>(url: string) => {
   const [fetchData, setFetchData] = useState<QueryType<T>>({
     data: null,
     loading: true,
-    error: false,
+    error: null,
   });
 
   useEffect(() => {
@@ -20,16 +20,16 @@ export const useQuery = <T>(url: string) => {
         setFetchData({
           data,
           loading: false,
-          error: false,
+          error: null,
         })
       )
-      .catch(() =>
+      .catch((error) => {
         setFetchData({
           data: null,
           loading: false,
-          error: true,
-        })
-      );
+          error: error,
+        });
+      });
   }, [url]);
 
   return fetchData;

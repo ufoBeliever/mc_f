@@ -4,6 +4,7 @@ import { Error, Heading, ImageViewer, Loading, Modal } from "../../components";
 import { useQuery } from "../../hooks";
 import { setHidden } from "../../utils";
 import { IAlbum } from "../Gallery/types";
+import { NotFound } from "../NotFound";
 
 export const GalleryAlbum = () => {
   const { id } = useParams();
@@ -14,6 +15,9 @@ export const GalleryAlbum = () => {
   const imageRef = useRef<HTMLImageElement | null>(null);
 
   if (error) {
+    if (error.message === "AxiosError: Request failed with status code 404") {
+      return <NotFound />;
+    }
     return (
       <div className="min-h-screen flex items-center justify-center">
         <Error />
