@@ -7,3 +7,4 @@ export * from "./Gallery";
 export * from "./GalleryAlbum";
 export * from "./Auth";
 export * from "./NotFound";
+export * from "./User";

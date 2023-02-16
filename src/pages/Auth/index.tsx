@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Heading, Input, Button } from "../../components";
+import { useNavigate } from "react-router-dom";
 
 export const Auth = () => {
+  const navigate = useNavigate();
   interface IForm {
     email?: string;
     username?: string;
@@ -36,7 +38,7 @@ export const Auth = () => {
     try {
       await axios
         .post(process.env.REACT_APP_DOMAIN! + "/registrate/", formData)
-        .then((e) => console.log(e));
+        .then((e) => navigate(`/user/${e.data.username}`));
     } catch (e: any) {
       setFormErrors(e.response.data);
     }
